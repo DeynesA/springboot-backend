@@ -1,0 +1,43 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Code auschecken
+      uses: actions/checkout@v4
+
+    - name: JDK einrichten
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+
+    - name: Mit Maven bauen
+      run: mvn clean package
+
+    - name: Tests ausführen
+      run: mvn test
+
+    - name: Codequalität überprüfen
+      run: mvn verify
+
+    - name: Anwendung verpacken
+      run: 7z a springboot-backend.7z target/*.jar
+
+    - name: Build-Ergebnis anzeigen
+      if: always()
+      run: echo 'Build abgeschlossen'
+
+    - name: Erfolgreicher Build
+      if: success()
+      run: echo 'Build war erfolgreich!'
+
+    - name: Fehlgeschlagener Build
+      if: failure()
+      run: echo 'Build ist fehlgeschlagen. Bitte überprüfen Sie die Logs.'
