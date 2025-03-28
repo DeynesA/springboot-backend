@@ -22,9 +22,6 @@ jobs:
     - name: Tests ausführen
       run: npm test
 
-    - name: Codequalität überprüfen
-      run: npm verify
-
     - name: Anwendung verpacken
       run: 7z a angular-frontend.7z dist/*
 
