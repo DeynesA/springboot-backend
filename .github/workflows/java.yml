@@ -2,9 +2,7 @@ name: Java CI
 
 on:
   push:
-    branches:
-      - main
-
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,13 +15,16 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'temurin'  # z.B. 'temurin', 'zulu', 'adoptopenjdk'
+        distribution: 'zulu'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
-    - name: Maven
-      run: mvn clean compile package
+    - name: Mit Maven bauen
+      run: mvn clean package
 
     - name: Tests ausführen
       run: mvn test
+
+    - name: Codequalität überprüfen
+      run: mvn verify
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
