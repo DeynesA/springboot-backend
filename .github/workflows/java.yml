@@ -16,8 +16,8 @@ jobs:
     - name: JDK einrichten
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
-        distribution: 'zulu'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
+        java-version: '17'
+        distribution: 'adoptopenjdk'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
       run: mvn clean package
