@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '17'
-        distribution: 'adoptopenjdk'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
+        distribution: 'temurin'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
       run: mvn clean package
