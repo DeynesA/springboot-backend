@@ -20,13 +20,13 @@ jobs:
         distribution: 'temurin'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
-      run: mvn clean package
+      run: mvn clean compile package -X
 
     - name: Tests ausführen
-      run: mvn test
+      run: mvn test -X
 
     - name: Codequalität überprüfen
-      run: mvn verify
+      run: mvn verify -
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
