@@ -2,10 +2,12 @@ name: Java CI
 
 on:
   push:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_RUNNER_DEBUG: true
 
     steps:
     - name: Code auschecken
