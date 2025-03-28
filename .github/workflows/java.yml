@@ -2,8 +2,6 @@ name: Java CI
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -16,7 +14,7 @@ jobs:
     - name: JDK einrichten
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '21'
 
     - name: Mit Maven bauen
       run: mvn clean package
