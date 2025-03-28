@@ -19,7 +19,7 @@ jobs:
         java-version: '21'
         distribution: 'temurin'  # z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
-    - name: Mit Maven bauen
+    - name: Maven
       run: mvn clean compile package
 
     - name: Tests ausführen
