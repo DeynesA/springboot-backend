@@ -18,7 +18,7 @@ jobs:
         distribution: 'temurin'  # z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
-      run: mvn clean compile package
+      run: mvn clean compile
 
     - name: Tests ausführen
       run: mvn test
