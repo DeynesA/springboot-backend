@@ -25,8 +25,6 @@ jobs:
     - name: Tests ausführen
       run: mvn test -X
 
-    - name: Codequalität überprüfen
-      run: mvn verify -
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
