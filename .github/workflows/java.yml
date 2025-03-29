@@ -15,13 +15,13 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: ''  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
+        distribution: 'temurin'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
-      run: mvn clean compile 
+      run: mvn clean compile package
 
     - name: Tests ausführen
-      run: mvn test 
+      run: mvn test
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
@@ -37,3 +37,9 @@ jobs:
     - name: Fehlgeschlagener Build
       if: failure()
       run: echo 'Build ist fehlgeschlagen. Bitte überprüfen Sie die Logs.'
+
+    - name: Anwendung auf Testumgebung deployen
+      run: echo 'Deploying to test environment...'
+      
+    - name: Clean up
+      run: mvn clean

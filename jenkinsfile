@@ -15,7 +15,7 @@ jobs:
         java-version: '21'
 
     - name: Mit Maven bauen
-      run: mvn clean package
+      run: mvn clean compile package
 
     - name: Tests ausführen
       run: mvn test
