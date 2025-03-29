@@ -20,6 +20,9 @@ jobs:
     - name: Mit Maven bauen
       run: mvn clean compile
 
+    - name: Mit Maven testen
+      run: mvn test  
+
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
 
