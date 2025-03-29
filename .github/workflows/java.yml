@@ -16,15 +16,14 @@ jobs:
     - name: JDK einrichten
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
-      run: mvn clean compile package -X
+      run: mvn clean compile -X
 
     - name: Tests ausführen
       run: mvn test -X
-
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
