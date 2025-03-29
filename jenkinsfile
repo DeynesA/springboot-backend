@@ -12,7 +12,7 @@ jobs:
     - name: JDK einrichten
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
+        java-version: '17'
 
     - name: Mit Maven bauen
       run: mvn clean compile package
