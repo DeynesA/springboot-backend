@@ -18,7 +18,10 @@ jobs:
         distribution: 'temurin'  # Hier z.B. 'temurin', 'zulu', 'adoptopenjdk'
 
     - name: Mit Maven bauen
-      run: mvn clean compile
+      run: mvn clean compile package
+
+    - name: Mit Maven testen
+      run: mvn runtest
 
     - name: Anwendung verpacken
       run: 7z a springboot-backend.7z target/*.jar
@@ -36,4 +39,4 @@ jobs:
       run: echo 'Build ist fehlgeschlagen. Bitte überprüfen Sie die Logs.'
 
     - name: Anwendung auf Testumgebung deployen
-      run: echo 'Deploying to test'
+      run: echo 'Deploying test'
